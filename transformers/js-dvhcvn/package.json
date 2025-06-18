@@ -1,0 +1,46 @@
+{
+  "name": "dvhcvn",
+  "version": "1.2.20250301",
+  "description": "Three tiers of Vietnam's administrative units (last update: 01/03/2025)",
+  "files": [
+    "lib/*"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "prebuild": "npm run generate",
+    "format": "prettier --write '**/*.{js,json,ts}'",
+    "generate": "tsx bin/generate.ts ../../data/dvhcvn.json > src/data.ts",
+    "postgenerate": "npm run format && npm run test:coverage",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage --no-watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daohoangson/dvhcvn.git"
+  },
+  "keywords": [
+    "vietnam",
+    "provinces",
+    "cities",
+    "districts"
+  ],
+  "author": "Dao Hoang Son <daohoangson@gmail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/daohoangson/dvhcvn/issues"
+  },
+  "homepage": "https://github.com/daohoangson/dvhcvn#readme",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@types/node": "^22.10.2",
+    "@vitest/coverage-v8": "^2.1.8",
+    "prettier": "^3.4.2",
+    "rollup": "^4.29.1",
+    "tslib": "^2.8.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
